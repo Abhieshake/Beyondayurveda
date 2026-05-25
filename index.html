@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Ayurveda — Panchakarma Specialty Clinic, Dehradun</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #1a2e1f;
+  --forest-light: #243d2a;
+  --gold: #b8963e;
+  --gold-light: #d4af6a;
+  --gold-pale: #f0e4c4;
+  --cream: #f7f2ea;
+  --ivory: #fdfaf5;
+  --sage: #7a9e7e;
+  --sage-light: #a8c5ab;
+  --mid: #4a4a4a;
+  --light: #aaaaaa;
+  --bg: #f5f0e8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--ivory);
+  color: var(--forest);
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+/* ─── FORM OVERLAY ─── */
+  #form-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+  #form-box {
+    background: #fdfaf5;
+    width: 90%;
+    max-width: 680px;
+    max-height: 90vh;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  #form-close {
+    position: absolute;
+    top: 12px; right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #1a2e1f;
+    z-index: 10;
+    background: none;
+    border: none;
+  }
+  #form-box iframe {
+    width: 100%;
+    height: 85vh;
+    border: none;
+  }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(253,250,245,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,150,62,0.15);
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-emblem svg { width: 32px; height: 32px; }
+
+.nav-logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: var(--forest);
+}
+
+.nav-logo-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--forest);
+  color: var(--cream) !important;
+  padding: 10px 22px;
+  letter-spacing: 2px !important;
+  border-radius: 2px;
+  transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--gold) !important; color: var(--ivory) !important; }
+.nav-cta::after { display: none !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--forest);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 140px 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,150,62,0.12) 0%, transparent 70%);
+}
+
+.hero-left::after {
+  content: '';
+  position: absolute;
+  bottom: -50px; right: -50px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122,158,126,0.1) 0%, transparent 70%);
+}
+
+.hero-badge {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 30px; height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.hero-title-gold { color: var(--gold); }
+
+.hero-divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 24px 0;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: rgba(247,242,234,0.7);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+.hero-tagline {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(184,150,62,0.7);
+  margin-bottom: 50px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--ivory);
+  padding: 14px 32px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+  border: 1px solid var(--gold);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  padding: 14px 32px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid rgba(247,242,234,0.3);
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-right {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 80px 80px;
+  position: relative;
+}
+
+.hero-emblem {
+  animation: floatEmb 6s ease-in-out infinite;
+}
+
+.hero-emblem svg { width: 220px; height: 220px; }
+
+@keyframes floatEmb {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-right-quote {
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--forest);
+  line-height: 1.7;
+  opacity: 0.7;
+  max-width: 320px;
+}
+
+.hero-right-loc {
+  margin-top: 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+.hero-scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ─── SECTION COMMONS ─── */
+section { padding: 100px 60px; }
+
+.section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-label::before {
+  content: '';
+  width: 30px; height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500;
+  color: var(--forest);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--mid);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ─── ABOUT ─── */
+.about {
+  background: var(--ivory);
+  display: block;
+  position: relative;
+}
+
+.about-content { padding: 20px 0; max-width: 720px; }
+
+.about-name {
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  color: var(--forest);
+  letter-spacing: 2px;
+  margin: 24px 0 4px;
+}
+
+.about-qual {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--mid);
+  margin-bottom: 16px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(184,150,62,0.2);
+}
+
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.stat-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-top: 4px;
+}
+
+/* ─── THERAPIES ─── */
+.therapies {
+  background: var(--forest);
+  color: var(--cream);
+}
+
+.therapies .section-title { color: var(--cream); }
+.therapies .section-sub { color: rgba(247,242,234,0.6); }
+
+.therapies-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  margin-top: 60px;
+  background: rgba(184,150,62,0.15);
+}
+
+.therapy-card {
+  background: var(--forest);
+  padding: 36px 24px;
+  transition: background 0.3s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.therapy-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.therapy-card:hover { background: var(--forest-light); }
+.therapy-card:hover::before { transform: scaleX(1); }
+
+.therapy-num {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  color: var(--gold);
+  opacity: 0.5;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.therapy-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.therapy-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(247,242,234,0.5);
+  line-height: 1.7;
+}
+
+/* ─── SPECIALITIES ─── */
+.specialities { background: var(--cream); }
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.spec-card {
+  background: var(--ivory);
+  border: 1px solid rgba(184,150,62,0.15);
+  padding: 36px 32px;
+  border-radius: 2px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--gold);
+  transition: height 0.3s;
+}
+
+.spec-card:hover { border-color: rgba(184,150,62,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.spec-card:hover::before { height: 100%; }
+
+.spec-icon {
+  width: 44px; height: 44px;
+  border: 1px solid rgba(184,150,62,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.spec-icon svg { width: 20px; height: 20px; }
+
+.spec-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.spec-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+/* ─── WHY US ─── */
+.why {
+  background: var(--ivory);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.why-points { display: flex; flex-direction: column; gap: 32px; margin-top: 40px; }
+
+.why-point { display: flex; gap: 20px; align-items: flex-start; }
+
+.why-point-num {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: var(--gold);
+  opacity: 0.6;
+  min-width: 28px;
+  margin-top: 3px;
+}
+
+.why-point-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 6px;
+}
+
+.why-point-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+.why-visual {
+  background: var(--forest);
+  border-radius: 2px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.why-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(184,150,62,0.15), transparent 60%);
+}
+
+.why-visual-emblem svg { width: 100px; height: 100px; }
+
+.why-visual-title {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  color: var(--cream);
+  letter-spacing: 3px;
+  margin: 24px 0 8px;
+}
+
+.why-visual-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-light);
+  letter-spacing: 2px;
+}
+
+.why-visual-divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 24px auto;
+}
+
+.why-visual-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(247,242,234,0.5);
+  line-height: 1.8;
+  max-width: 280px;
+  position: relative;
+}
+
+/* ─── CONTACT ─── */
+.contact { background: var(--forest); color: var(--cream); }
+.contact .section-title { color: var(--cream); }
+.contact .section-sub { color: rgba(247,242,234,0.6); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 60px;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 32px; }
+
+.contact-item { display: flex; gap: 20px; align-items: flex-start; }
+
+.contact-icon-wrap {
+  width: 44px; height: 44px;
+  border: 1px solid rgba(184,150,62,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon-wrap svg { width: 18px; height: 18px; }
+
+.contact-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.contact-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--cream);
+  line-height: 1.5;
+}
+
+.hours-table { margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(184,150,62,0.15); }
+
+.hours-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(247,242,234,0.06);
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.hours-day { color: rgba(247,242,234,0.6); }
+.hours-time { color: var(--cream); }
+
+.contact-map {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(184,150,62,0.2);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+  gap: 20px;
+}
+
+.map-pin svg { width: 48px; height: 48px; }
+
+.map-title {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--cream);
+  letter-spacing: 2px;
+}
+
+.map-address {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(247,242,234,0.6);
+  line-height: 1.8;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: var(--gold);
+  color: var(--ivory);
+  padding: 12px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.map-btn:hover { background: var(--gold-light); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #111a13;
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-top: 1px solid rgba(184,150,62,0.15);
+}
+
+.footer-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(247,242,234,0.3);
+  margin-top: 4px;
+}
+
+.footer-copy {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  color: rgba(247,242,234,0.2);
+  letter-spacing: 1px;
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 120px 32px 60px; }
+  .hero-right { padding: 60px 32px; }
+  section { padding: 70px 24px; }
+  .about, .why { grid-template-columns: 1fr; gap: 40px; }
+  .therapies-grid { grid-template-columns: repeat(2, 1fr); }
+  .spec-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════ NAV ══════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-emblem">
+      <svg viewBox="0 0 90 90" fill="none">
+        <circle cx="45" cy="45" r="42" stroke="#b8963e" stroke-width="0.8" opacity="0.4"/>
+        <g>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(0 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(45 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(90 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(135 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(180 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(225 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(270 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(315 45 45)"/>
+        </g>
+        <circle cx="45" cy="45" r="7" fill="#b8963e" opacity="0.9"/>
+        <circle cx="45" cy="45" r="4" fill="#fdfaf5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-logo-text">Beyond Ayurveda</div>
+      <div class="nav-logo-sub">Panchakarma Specialty · Dehradun</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#therapies">Therapies</a></li>
+    <li><a href="#all-therapies">All Treatments</a></li>
+    <li><a href="#specialities">Specialities</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:+919897913123" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-badge">Est. 2026 · Dehradun</div>
+    <h1 class="hero-title">
+      Beyond<br>
+      <span class="hero-title-gold">Ayurveda</span>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Where ancient Panchakarma wisdom meets modern healing — nestled in the lap of the Himalayas.</p>
+    <div class="hero-tagline">Heal · Detox · Renew</div>
+    <div class="hero-btns">
+      <a href="tel:+919897913123" class="btn-primary">Book Consultation</a>
+      <a href="#therapies" class="btn-secondary">Our Therapies</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-emblem">
+      <svg viewBox="0 0 90 90" fill="none">
+        <circle cx="45" cy="45" r="42" stroke="#b8963e" stroke-width="0.6" opacity="0.3"/>
+        <circle cx="45" cy="45" r="35" stroke="#b8963e" stroke-width="0.4" opacity="0.15"/>
+        <g>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(0 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(45 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(90 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(135 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(180 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(225 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(270 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#1a2e1f" stroke-width="1.2" transform="rotate(315 45 45)"/>
+        </g>
+        <circle cx="45" cy="45" r="7" fill="#b8963e" opacity="0.9"/>
+        <circle cx="45" cy="45" r="4" fill="#fdfaf5"/>
+        <line x1="45" y1="3" x2="45" y2="12" stroke="#b8963e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="45" y1="78" x2="45" y2="87" stroke="#b8963e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="3" y1="45" x2="12" y2="45" stroke="#b8963e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="78" y1="45" x2="87" y2="45" stroke="#b8963e" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+    <p class="hero-right-quote">"The body is the vehicle of the soul. Heal it. Honour it. Transform it."</p>
+    <div class="hero-right-loc">Rajpur Road · Dehradun · Uttarakhand</div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
+<section class="about" id="about">
+
+  <div class="about-content fade-up">
+    <div class="section-label">About the Physician</div>
+    <h2 class="section-title">Vd. Abhishek</h2>
+    <div class="about-qual">BAMS · MD (Panchakarma)</div>
+    <p class="about-text">Rooted in classical Ayurveda and Panchakarma, Vd. Abhishek brings authentic healing traditions to modern clinical practice in Dehradun, Uttarakhand.</p>
+    <p class="about-text">At Beyond Ayurveda, every treatment is personalised to the individual's Prakriti — restoring balance not just to the body, but to the mind and spirit through time-tested Panchakarma protocols.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ THERAPIES ══════════════════════════════ -->
+<section class="therapies" id="therapies">
+  <div class="section-label" style="color:var(--gold);">Classical Panchakarma</div>
+  <h2 class="section-title">Our Therapies</h2>
+  <p class="section-sub">A complete spectrum of authentic Panchakarma treatments — performed in classical sequence for maximum therapeutic benefit.</p>
+
+  <div class="therapies-grid">
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">01</div>
+      <div class="therapy-name">Snehan</div>
+      <div class="therapy-desc">Systematic oleation with medicated oils internally & externally to loosen deep-seated toxins</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">02</div>
+      <div class="therapy-name">Swedan</div>
+      <div class="therapy-desc">Herbal steam therapy to open channels, dilate pores & facilitate toxin elimination</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">03</div>
+      <div class="therapy-name">Vaman</div>
+      <div class="therapy-desc">Controlled therapeutic vomiting to expel Kapha toxins from the upper gastric tract</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">04</div>
+      <div class="therapy-name">Virechan</div>
+      <div class="therapy-desc">Medicated purgation to eliminate excess Pitta & cleanse the liver, blood & gut</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">05</div>
+      <div class="therapy-name">Basti</div>
+      <div class="therapy-desc">Medicated enema delivering herbal oils & decoctions to the colon for deep Vata pacification</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">06</div>
+      <div class="therapy-name">Nasya</div>
+      <div class="therapy-desc">Nasal instillation of medicated oils to cleanse & rejuvenate the head, neck & sense organs</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">07</div>
+      <div class="therapy-name">Raktamokshan</div>
+      <div class="therapy-desc">Controlled blood purification to detoxify blood & treat chronic skin & inflammatory disorders</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">08</div>
+      <div class="therapy-name">Agnikarma</div>
+      <div class="therapy-desc">Precision thermal cauterisation using Agni to relieve chronic pain, joint disorders & calcifications</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">09</div>
+      <div class="therapy-name">Viddhakarma</div>
+      <div class="therapy-desc">Therapeutic needling at precise marma & trigger points for pain relief & energy rebalancing</div>
+    </div>
+    <div class="therapy-card fade-up">
+      <div class="therapy-num">10</div>
+      <div class="therapy-name">Cupping Therapy</div>
+      <div class="therapy-desc">Negative pressure suction therapy to release muscle tension, improve circulation & drain toxins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ SPECIALITIES ══════════════════════════════ -->
+<section class="specialities" id="specialities">
+  <div class="section-label">Areas of Expertise</div>
+  <h2 class="section-title">We Specialise In</h2>
+  <p class="section-sub">From mental wellness to musculoskeletal disorders — comprehensive Ayurvedic care tailored to your unique constitution.</p>
+
+  <div class="spec-grid">
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div class="spec-name">Insomnia</div>
+      <div class="spec-desc">Ayurvedic management of sleep disorders through Shirodhara, Nasya & calming herbal protocols</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="spec-name">General Anxiety Disorder</div>
+      <div class="spec-desc">Holistic calming therapies targeting the nervous system to restore mental equilibrium</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <div class="spec-name">Depression</div>
+      <div class="spec-desc">Integrative Panchakarma approach to restore Ojas, vitality & emotional wellbeing</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="spec-name">Joint & Spine Disorders</div>
+      <div class="spec-desc">Basti, Agnikarma & Viddhakarma protocols for arthritis, spondylitis & musculoskeletal conditions</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="spec-name">Chronic Skin Ailments</div>
+      <div class="spec-desc">Raktamokshan & Virechan-based detoxification for psoriasis, eczema & chronic skin conditions</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <div class="spec-name">Digestion Related Disorders</div>
+      <div class="spec-desc">Comprehensive gut restoration through Vaman, Virechan & Basti for IBS, gastritis & more</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="spec-name">Lifestyle Disorders</div>
+      <div class="spec-desc">Ayurvedic management of Diabetes (Prameha) & Hypertension (Raktagata Vata) through Panchakarma</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M3 2l1.5 1.5M21 2l-1.5 1.5M12 6C8 6 5 9 5 13c0 3.87 3.13 7 7 7s7-3.13 7-7c0-4-3-7-7-7z"/></svg>
+      </div>
+      <div class="spec-name">Personalised Diet & Lifestyle Counselling</div>
+      <div class="spec-desc">Prakriti-based dietary plans & daily regimen to restore and maintain optimal health</div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="spec-name">Panchakarma Treatment</div>
+      <div class="spec-desc">Complete Detoxification Treatment Modality — the gold standard of Ayurvedic purification & rejuvenation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ALL THERAPIES OFFERED ══════════════════ -->
+<section id="all-therapies" style="background:var(--forest);padding:100px 60px;">
+  <div class="section-label" style="color:var(--gold);">Complete Treatment Portfolio</div>
+  <h2 class="section-title" style="color:var(--cream);">All Therapies Offered</h2>
+  <p class="section-sub" style="color:rgba(247,242,234,0.6);margin-bottom:60px;">A comprehensive spectrum of classical Ayurvedic & Panchakarma therapies — offered under expert supervision.</p>
+
+  <style>
+    .all-therapies-grid { display:flex; flex-wrap:wrap; gap:10px; }
+    .therapy-tag-list { display:flex; flex-wrap:wrap; gap:8px; }
+    .therapy-tag {
+      font-family:'Jost',sans-serif; font-size:11px; font-weight:300;
+      color:rgba(247,242,234,0.75); background:rgba(255,255,255,0.05);
+      border:1px solid rgba(184,150,62,0.2); padding:6px 14px;
+      border-radius:2px; letter-spacing:0.5px; transition:all 0.3s;
+      cursor:default;
+    }
+    .therapy-tag:hover { background:rgba(184,150,62,0.12); border-color:rgba(184,150,62,0.5); color:var(--cream); }
+    @media(max-width:900px){ .all-therapies-grid{ grid-template-columns:1fr; } }
+  </style>
+
+  <div class="fade-up">
+    <div class="therapy-tag-list">
+      <span class="therapy-tag">Vamana</span>
+      <span class="therapy-tag">Virechana</span>
+      <span class="therapy-tag">Asthapana Basti</span>
+      <span class="therapy-tag">Anuvasana Basti</span>
+      <span class="therapy-tag">Matra Basti</span>
+      <span class="therapy-tag">Yapana Basti</span>
+      <span class="therapy-tag">Uttara Basti</span>
+      <span class="therapy-tag">Nasya</span>
+      <span class="therapy-tag">Leech Therapy (Jalauka)</span>
+      <span class="therapy-tag">Siravyadha</span>
+      <span class="therapy-tag">Agnikarma</span>
+      <span class="therapy-tag">Snehpana</span>
+      <span class="therapy-tag">Abhyanga</span>
+      <span class="therapy-tag">Mardana</span>
+      <span class="therapy-tag">Udwartana</span>
+      <span class="therapy-tag">Upanaha</span>
+      <span class="therapy-tag">Lepa</span>
+      <span class="therapy-tag">Nadi Sweda (Snehdhara)</span>
+      <span class="therapy-tag">Elakizhi (Patra Pottali Sweda)</span>
+      <span class="therapy-tag">Navarakizhi (Shashtika Shali Pinda Sweda)</span>
+      <span class="therapy-tag">Podikizhi (Choorna Pinda Sweda)</span>
+      <span class="therapy-tag">Pizhichil</span>
+      <span class="therapy-tag">Upanaha Sweda</span>
+      <span class="therapy-tag">Shirodhara</span>
+      <span class="therapy-tag">Takradhara</span>
+      <span class="therapy-tag">Thaladhara</span>
+      <span class="therapy-tag">Shiro Abhyanga</span>
+      <span class="therapy-tag">Shiropichu</span>
+      <span class="therapy-tag">Shirovasti</span>
+      <span class="therapy-tag">Thalapothichil</span>
+      <span class="therapy-tag">Dhoomapana</span>
+      <span class="therapy-tag">Kati Basti</span>
+      <span class="therapy-tag">Greeva Basti</span>
+      <span class="therapy-tag">Janu Basti</span>
+      <span class="therapy-tag">Nabhi Basti</span>
+      <span class="therapy-tag">Netra Tarpana</span>
+      <span class="therapy-tag">Putapaka</span>
+      <span class="therapy-tag">Karnapoorana</span>
+      <span class="therapy-tag">Rasayana Therapy</span>
+      <span class="therapy-tag">Vajikarana Therapy</span>
+      <span class="therapy-tag">Detox Therapy</span>
+      <span class="therapy-tag">Stress Management Therapy</span>
+      <span class="therapy-tag">Weight Management Therapy</span>
+      <span class="therapy-tag">Pain Management Therapy</span>
+      <span class="therapy-tag">Sleep Therapy</span>
+      <span class="therapy-tag">Spine Care Therapy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ WHY US ══════════════════════════════ -->
+<section class="why">
+  <div class="fade-up">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">Beyond Ordinary Healing</h2>
+    <div class="why-points">
+      <div class="why-point">
+        <div class="why-point-num">01</div>
+        <div>
+          <div class="why-point-title">Classical Authenticity</div>
+          <div class="why-point-text">Every therapy follows classical Ayurvedic texts — Charaka Samhita & Sushruta Samhita — adapted for the modern patient.</div>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-num">02</div>
+        <div>
+          <div class="why-point-title">Personalised Treatment Protocols</div>
+          <div class="why-point-text">Each patient receives a thorough Prakriti assessment before treatment, ensuring therapies are precisely tailored.</div>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-num">03</div>
+        <div>
+          <div class="why-point-title">Specialist Expertise</div>
+          <div class="why-point-text">Led by Vd. Abhishek, MD (Panchakarma) — dedicated specialist with deep clinical experience in Panchakarma procedures.</div>
+        </div>
+      </div>
+      <div class="why-point">
+        <div class="why-point-num">04</div>
+        <div>
+          <div class="why-point-title">Himalayan Setting</div>
+          <div class="why-point-text">Located in the serene foothills of Dehradun — the energy of the Devbhoomi enhances every healing session.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="why-visual fade-up">
+    <div class="why-visual-emblem">
+      <svg viewBox="0 0 90 90" fill="none">
+        <circle cx="45" cy="45" r="42" stroke="#b8963e" stroke-width="0.8" opacity="0.4"/>
+        <g>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(0 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(45 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(90 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(135 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(180 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(225 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(270 45 45)"/>
+          <ellipse cx="45" cy="25" rx="4" ry="10" fill="none" stroke="#f7f2ea" stroke-width="1.2" transform="rotate(315 45 45)"/>
+        </g>
+        <circle cx="45" cy="45" r="7" fill="#b8963e"/>
+        <circle cx="45" cy="45" r="4" fill="#fdfaf5"/>
+      </svg>
+    </div>
+    <div class="why-visual-title">Beyond Ayurveda</div>
+    <div class="why-visual-sub">Panchakarma Specialty</div>
+    <div class="why-visual-divider"></div>
+    <div class="why-visual-quote">"Where ancient wisdom meets modern healing — and every patient leaves renewed."</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="section-label">Find Us</div>
+  <h2 class="section-title">Visit the Clinic</h2>
+  <p class="section-sub">Located in the heart of Dehradun — book your consultation today and begin your healing journey.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item fade-up">
+        <div class="contact-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 98979 13123</div>
+        </div>
+      </div>
+      <div class="contact-item fade-up">
+        <div class="contact-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">beyondayurvedainfo@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-item fade-up">
+        <div class="contact-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Address</div>
+          <div class="contact-value">76/1 Aryanagar Block-2<br>Rajpur Road, Dehradun<br>Uttarakhand — 248001</div>
+        </div>
+      </div>
+
+      <div class="hours-table fade-up">
+        <div class="hours-title">Clinic Hours</div>
+        <div class="hours-row">
+          <span class="hours-day">Monday – Saturday</span>
+          <span class="hours-time">10:00 AM – 4:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sunday</span>
+          <span class="hours-time">By Appointment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-map fade-up">
+      <div class="map-pin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b8963e" stroke-width="1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="map-title">Beyond Ayurveda</div>
+      <div class="map-address">
+        76/1 Aryanagar Block-2<br>
+        Rajpur Road, Dehradun<br>
+        Uttarakhand — 248001
+      </div>
+      <a href="https://share.google/Zlqgyk9afu4RifTOW" target="_blank" class="map-btn">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<footer>
+  <div>
+    <div class="footer-brand">Beyond Ayurveda</div>
+    <div class="footer-tagline">Heal. Detox. Renew.</div>
+  </div>
+  <div class="footer-copy">© 2026 Beyond Ayurveda · Dehradun · All rights reserved</div>
+</footer>
+
+<!-- ══════════════════════════════ FORM OVERLAY ══════════════════════════════ -->
+<div id="form-overlay" onclick="if(event.target===this) closeForm()">
+  <div id="form-box">
+    <button id="form-close" onclick="closeForm()">✕</button>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeXgiZhFqI1U3Vq04hJy4MhZLjU4PRQKxg10REu80ap8rfATA/viewform?embedded=true"></iframe>
+  </div>
+</div>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
+});
+
+// Book Appointment form modal
+function closeForm() {
+  document.getElementById('form-overlay').style.display = 'none';
+}
+
+document.querySelectorAll('a.nav-cta, a[href="#book"], a.btn-primary').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('form-overlay').style.display = 'flex';
+  });
+});
+</script>
+</body>
+</html>
