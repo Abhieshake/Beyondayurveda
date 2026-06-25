@@ -803,6 +803,120 @@ footer {
   transform: translateY(0);
 }
 
+/* ─── BOOKING MODAL ─── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+  background: var(--ivory);
+  border-radius: 4px;
+  padding: 60px 50px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none; border: none;
+  font-size: 24px; color: var(--forest);
+  cursor: pointer; transition: color 0.3s;
+}
+
+.modal-close:hover { color: var(--gold); }
+
+.modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  color: var(--forest);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.modal-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--mid);
+  margin-bottom: 36px;
+}
+
+.booking-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.booking-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--cream);
+  border: 1px solid rgba(184, 150, 62, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--forest);
+}
+
+.booking-btn:hover {
+  background: var(--gold-pale);
+  border-color: var(--gold);
+  transform: translateX(4px);
+}
+
+.booking-btn-icon {
+  width: 40px; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--forest);
+  border-radius: 2px;
+  color: var(--cream);
+  font-size: 18px;
+}
+
+.booking-btn-text {
+  flex: 1;
+}
+
+.booking-btn-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.booking-btn-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: var(--light);
+}
+
 /* ─── MOBILE ─── */
 @media (max-width: 900px) {
   nav { padding: 16px 24px; }
@@ -816,6 +930,7 @@ footer {
   .spec-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   footer { flex-direction: column; text-align: center; }
+  .modal-content { padding: 40px 24px; }
 }
 </style>
 </head>
@@ -852,7 +967,7 @@ footer {
     <li><a href="#all-therapies">All Treatments</a></li>
     <li><a href="#specialities">Specialities</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://wa.me/919897913123?text=Namaste%20%F0%9F%99%8F%20I%20would%20like%20to%20book%20a%20consultation%20at%20Beyond%20Ayurveda." target="_blank" class="nav-cta">Book Now</a></li>
+    <li><button onclick="openBookingModal()" class="nav-cta" style="background:var(--forest);color:var(--cream);padding:10px 22px;letter-spacing:2px;border-radius:2px;border:none;cursor:pointer;transition:background 0.3s;">Book Now</button></li>
   </ul>
 </nav>
 
@@ -868,7 +983,7 @@ footer {
     <p class="hero-sub">Where ancient Panchakarma wisdom meets modern healing — nestled in the lap of the Himalayas.</p>
     <div class="hero-tagline">Heal · Detox · Renew</div>
     <div class="hero-btns">
-      <a href="https://wa.me/919897913123?text=Namaste%20%F0%9F%99%8F%20I%20would%20like%20to%20book%20a%20consultation%20at%20Beyond%20Ayurveda." target="_blank" class="btn-primary">Book Consultation</a>
+      <button onclick="openBookingModal()" class="btn-primary" style="background:var(--gold);color:var(--ivory);padding:14px 32px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--gold);border-radius:2px;transition:all 0.3s;cursor:pointer;">Book Consultation</button>
       <a href="#therapies" class="btn-secondary">Our Therapies</a>
     </div>
   </div>
@@ -1261,6 +1376,27 @@ footer {
 
 
 <script>
+// Booking Modal Handler
+function openBookingModal() {
+  document.getElementById('bookingModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal() {
+  document.getElementById('bookingModal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('bookingModal');
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeBookingModal();
+    }
+  });
+});
+
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -1280,5 +1416,52 @@ window.addEventListener('scroll', () => {
 
 
 </script>
-</body>
-</html>
+</head>
+<body>
+
+<!-- ══════════════════════════════ BOOKING MODAL ══════════════════════════════ -->
+<div id="bookingModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeBookingModal()">×</button>
+    <h2 class="modal-title">Book Your Consultation</h2>
+    <p class="modal-subtitle">Choose your preferred method to connect with us</p>
+    
+    <div class="booking-options">
+      <!-- WhatsApp Option -->
+      <a href="https://wa.me/919897913123?text=Namaste%20%F0%9F%99%8F%20I%20would%20like%20to%20book%20a%20consultation%20at%20Beyond%20Ayurveda." target="_blank" class="booking-btn" onclick="closeBookingModal()">
+        <div class="booking-btn-icon">💬</div>
+        <div class="booking-btn-text">
+          <div class="booking-btn-title">WhatsApp</div>
+          <div class="booking-btn-desc">Chat instantly on WhatsApp</div>
+        </div>
+      </a>
+      
+      <!-- Phone Option -->
+      <a href="tel:+919897913123" class="booking-btn" onclick="closeBookingModal()">
+        <div class="booking-btn-icon">☎️</div>
+        <div class="booking-btn-text">
+          <div class="booking-btn-title">Call Now</div>
+          <div class="booking-btn-desc">+91 98979 13123</div>
+        </div>
+      </a>
+      
+      <!-- Email Option -->
+      <a href="mailto:beyondayurvedainfo@gmail.com?subject=Booking%20Consultation%20Request" class="booking-btn" onclick="closeBookingModal()">
+        <div class="booking-btn-icon">✉️</div>
+        <div class="booking-btn-text">
+          <div class="booking-btn-title">Email</div>
+          <div class="booking-btn-desc">Send us an email</div>
+        </div>
+      </a>
+      
+      <!-- Google Form Option -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXgiZhFqI1U3Vq04hJy4MhZLjU4PRQKxg10REu80ap8rfATA/viewform" target="_blank" class="booking-btn" onclick="closeBookingModal()">
+        <div class="booking-btn-icon">📋</div>
+        <div class="booking-btn-text">
+          <div class="booking-btn-title">Form</div>
+          <div class="booking-btn-desc">Fill out booking form</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
